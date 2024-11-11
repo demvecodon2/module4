@@ -17,13 +17,13 @@ public class DictionaryController {
         if (word != null) {
             switch (word.toLowerCase()) {
                 case "java":
-                    definition = "A high-level programming language.";
+                    definition = "ngôn ngữ lập trình";
                     break;
                 case "spring":
-                    definition = "A framework for building Java-based applications.";
+                    definition = "framework để xây dựng các ứng dụng java.";
                     break;
                 default:
-                    definition = "No definition found.";
+                    definition = "ko tìm thấy";
             }
         }
 

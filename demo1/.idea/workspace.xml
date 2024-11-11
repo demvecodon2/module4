@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b715c06e-c552-45cb-912a-926b75bc6686" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/module4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/controller/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/repository/IStudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/repository/StudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/service/IStudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/service/StudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/view.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/banco.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/customer/detail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/customer/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/controller/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/webapp/WEB-INF/views/hello.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/java/com/example/demo4/CalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/webapp/WEB-INF/views/calculator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo5/src/main/java/com/example/demo5/DictionaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo5/src/main/webapp/WEB-INF/views/dictionary.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo5/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../untitled/src/BANCO.html" afterDir="false" />
-    </list>
+    <list default="true" id="b715c06e-c552-45cb-912a-926b75bc6686" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,6 +177,7 @@
       <workItem from="1731059529118" duration="1033000" />
       <workItem from="1731214447496" duration="117000" />
       <workItem from="1731215996575" duration="1374000" />
+      <workItem from="1731289134421" duration="176000" />
     </task>
     <servers />
   </component>
