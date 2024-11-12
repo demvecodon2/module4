@@ -5,48 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82fe7ac6-92f0-4aad-a6c2-c5f1da8eae1a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/module4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/controller/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/repository/IStudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/repository/StudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/service/IStudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/service/StudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/views/student/add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/views/student/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/views/student/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/views/student/view.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/banco.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/customer/detail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/views/customer/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/controller/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/webapp/WEB-INF/views/hello.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/java/com/example/demo4/CalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/webapp/WEB-INF/views/calculator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo4/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo5/DictionaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dictionary.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../untitled/src/BANCO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/java/com/example/demo6/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo6/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/java/com/example/demo7/SandwichController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/views/selectSpices.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/controller/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo1/controller/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo5/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo5/DictionaryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,30 +49,30 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2oe0t2JhL0oqehrDZSbAIoY7aqV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build demo5.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 9.0.95.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/codegym/module4/demo5/src/main/webapp/WEB-INF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build demo5.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.95.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/codegym/module4/demo5/src/main/webapp/WEB-INF&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\codegym\module4\demo5\src\main\webapp\WEB-INF" />
@@ -211,6 +184,12 @@
       <option name="presentableId" value="Default" />
       <updated>1731214945960</updated>
       <workItem from="1731214947024" duration="976000" />
+      <workItem from="1731289393513" duration="823000" />
+      <workItem from="1731292698812" duration="9000" />
+      <workItem from="1731297295988" duration="5000" />
+      <workItem from="1731297324432" duration="5000" />
+      <workItem from="1731306767238" duration="222000" />
+      <workItem from="1731307831897" duration="9000" />
     </task>
     <servers />
   </component>

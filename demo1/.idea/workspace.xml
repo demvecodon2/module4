@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b715c06e-c552-45cb-912a-926b75bc6686" name="Changes" comment="" />
+    <list default="true" id="b715c06e-c552-45cb-912a-926b75bc6686" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/java/com/example/demo7/SandwichController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/views/selectSpices.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo7/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo1/controller/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/controller/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo5/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../demo5/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,6 +187,9 @@
       <workItem from="1731214447496" duration="117000" />
       <workItem from="1731215996575" duration="1374000" />
       <workItem from="1731289134421" duration="176000" />
+      <workItem from="1731291488269" duration="72000" />
+      <workItem from="1731297330691" duration="415000" />
+      <workItem from="1731297765179" duration="1624000" />
     </task>
     <servers />
   </component>

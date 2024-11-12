@@ -31,14 +31,11 @@ public class Home {
         return "/student/add";
     }
 
-
     @PostMapping("/student/add")
     public String saveStudent(Student student) {
         studentService.addStudent(student);
         return "redirect:/student";
     }
-
-
 
     @PostMapping("/student/{id}/update")
     public String updateStudent(@PathVariable("id") int id, Student student) {
@@ -46,7 +43,6 @@ public class Home {
         studentService.updateStudent(student);
         return "redirect:/student";
     }
-
 
     @GetMapping("/student/{id}/edit")
     public String editStudent(Model model, @PathVariable("id") int id) {

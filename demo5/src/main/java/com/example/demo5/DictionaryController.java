@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class DictionaryController {
 
-    // Xử lý yêu cầu GET cho "/dictionary"
     @GetMapping("/dictionary")
     public String lookupWord(@RequestParam(value = "word", required = false) String word, Model model) {
         String definition = null;
