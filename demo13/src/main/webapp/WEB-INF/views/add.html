@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Mới Sản Phẩm</title>
+</head>
+<body>
+<h1>Thêm Mới Sản Phẩm</h1>
+
+<div th:if="${param.error == 'true'}" style="color: red;">
+    <p>Vui lòng kiểm tra lại thông tin nhập vào.</p>
+</div>
+
+<form th:action="@{/products/add}" th:object="${product}" method="post">
+    <div>
+        <label for="name">Tên sản phẩm:</label>
+        <input type="text" id="name" th:field="*{name}" required/><br/>
+    </div>
+
+    <div>
+        <label for="price">Giá sản phẩm:</label>
+        <input type="number" id="price" th:field="*{price}" required/><br/>
+    </div>
+
+    <div>
+        <label for="description">Mô tả:</label>
+        <input type="text" id="description" th:field="*{description}"/><br/>
+    </div>
+
+    <div>
+        <label for="manufacturer">nhà sản xuất:</label>
+        <input type="text" id="manufacturer" th:field="*{manufacturer}"/><br/>
+    </div>
+
+    <div>
+        <input type="submit" value="Thêm mới"/>
+    </div>
+</form>
+
+<br>
+<a href="/products">Quay lại</a>
+</body>
+</html>

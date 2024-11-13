@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33d619eb-eba7-4868-b134-2b396ad997b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/repository/IProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/java/com/example/thuc_hanh/controller/GreetingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/model/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/repository/EmailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/repository/IEmailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo12/service/IEmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/controller/EmailController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2omCgyKvh4ZFYuFnhUgpROvIukA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hieu/Downloads/demo_thymeleaf&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.95" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.95" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Gradle___com_example___demo12_1_0_SNAPSHOT_war/" />
+      <deployment>
+        <artifact name="Gradle : com.example : demo12-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Gradle___com_example___demo12_1_0_SNAPSHOT_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.example : demo12-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33d619eb-eba7-4868-b134-2b396ad997b0" name="Changes" comment="" />
+      <created>1731465480154</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731465480154</updated>
+      <workItem from="1731465481272" duration="1421000" />
+      <workItem from="1731471629192" duration="33000" />
+      <workItem from="1731479797221" duration="443000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

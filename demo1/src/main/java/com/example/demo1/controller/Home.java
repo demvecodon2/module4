@@ -56,6 +56,7 @@ public class Home {
         studentService.deleteStudent(id);
         return "redirect:/student";
     }
+
     @GetMapping("/student/{id}/view")
     public String viewStudent(@PathVariable("id") int id, Model model) {
         Student student = studentService.getStudentById(id)
@@ -63,5 +64,4 @@ public class Home {
         model.addAttribute("student", student);
         return "/student/view";
     }
-
 }

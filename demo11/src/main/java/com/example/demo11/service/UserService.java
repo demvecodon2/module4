@@ -1,8 +1,5 @@
-package com.codegym.service;
+package com.example.demo11.service;
 
-import com.codegym.model.Login;
-import com.codegym.model.User;
-import com.codegym.repository.UserRepository;
 import com.example.demo11.model.Login;
 import com.example.demo11.model.User;
 import com.example.demo11.repository.IUserRepository;
@@ -19,8 +16,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // Kiểm tra đăng nhập người dùng
     public User checkLogin(Login login) {
-        return userRepository.checkLogin(login);  // Gọi repository để kiểm tra đăng nhập
+        return userRepository.checkLogin(login);
     }
 }

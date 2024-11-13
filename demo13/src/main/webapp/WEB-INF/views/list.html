@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+
+<form action="/products" method="get">
+    <input type="text" name="search" value=""/>
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+
+<div th:if="${param.error}">
+    <p style="color: red;">Có lỗi xảy ra, vui lòng thử lại!</p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Mô tả</th>
+        <th>Nhà sản xuất</th>
+        <th>Chỉnh sửa</th>
+        <th>Xóa</th>
+        <th>Xem chi tiết</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.manufacturer}"></td>
+        <td th:text="${product.description}"></td>
+        <td><a th:href="@{/products/{id}/edit(id=${product.id})}">Sửa</a></td>
+        <td><a th:href="@{/products/{id}/delete(id=${product.id})}">Xóa</a></td>
+        <td><a th:href="@{/products/{id}(id=${product.id})}">Xem chi tiết</a></td>
+    </tr>
+    </tbody>
+
+</table>
+<br>
+<a th:href="@{/products}">Xem tất cả</a>
+<a th:href="@{/products/add}">Thêm mới sản phẩm</a>
+</body>
+</html>

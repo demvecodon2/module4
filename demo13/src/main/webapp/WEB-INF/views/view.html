@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+</head>
+<body>
+<h1>Chi tiết sản phẩm</h1>
+<div th:if="${product != null}">
+    <h2 th:text="${product.name}">Tên sản phẩm</h2>
+    <p><strong>Giá:</strong> <span th:text="${product.price}"></span> VND</p>
+    <p><strong>Mô tả:</strong> <span th:text="${product.description}"></span></p>
+    <p><strong>Thể loại:</strong> <span th:text="${product.manufacturer}"></span></p>
+    <a href="/products">Quay lại danh sách sản phẩm</a>
+</div>
+<div th:if="${product == null}">
+    <p>Không tìm thấy sản phẩm này.</p>
+    <a href="/products">Quay lại danh sách sản phẩm</a>
+</div>
+</body>
+</html>

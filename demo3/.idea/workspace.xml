@@ -5,44 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="874ece57-73b7-42c4-a9ee-4b1179455dcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo10/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/controller/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/model/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/java/com/example/thuc_hanh/controller/GreetingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/AppConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/AppInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/GreetingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/model/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/repository/EmailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/repository/IEmailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/service/IEmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo12/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo3/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/controller/EmailController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +58,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 0
@@ -77,6 +77,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build demo3.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat Server.Tomcat 9.0.95.executor": "Run",
     "git-widget-placeholder": "main",
@@ -87,6 +88,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,7 +97,10 @@
       <recent name="D:\codegym\module4\demo3\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.95">
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 9.0.95" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.95" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
@@ -183,6 +188,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="HTTP Request.generated-requests | #2" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.95" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -200,7 +214,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731397380468</updated>
-      <workItem from="1731397381460" duration="711000" />
+      <workItem from="1731397381460" duration="8400000" />
     </task>
     <servers />
   </component>
