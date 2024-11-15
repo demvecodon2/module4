@@ -5,66 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b715c06e-c552-45cb-912a-926b75bc6686" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo12/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo12/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo12/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo12/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/config/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/config/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/repository/IProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/java/com/example/demo13/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/webapp/WEB-INF/views/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo13/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/java/com/example/thuc_hanh/controller/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/config/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/config/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/java/com/example/thuc_hanh_thymeleaf/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thuc_hanh_thymeleaf/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/service/HibernateCustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/java/com/example/demo14/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo14/src/main/webapp/web/WEB-INF/views/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo15/src/main/java/com/example/demo15/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo15/src/main/java/com/example/demo15/config/AppInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo1/controller/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo1/controller/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/java/com/example/demo10/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo10/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/java/com/example/demo11/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/loginFailed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../demo11/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/AppConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/AppInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/controller/EmailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/model/Email.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/repository/EmailRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/repository/IEmailRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/service/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/java/com/example/demo12/service/IEmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo12/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/controller/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo13/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo13/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +203,9 @@
       <workItem from="1731394861558" duration="86000" />
       <workItem from="1731395363298" duration="328000" />
       <workItem from="1731480873558" duration="2445000" />
+      <workItem from="1731559126214" duration="16000" />
+      <workItem from="1731559191341" duration="310000" />
+      <workItem from="1731559680269" duration="499000" />
     </task>
     <servers />
   </component>

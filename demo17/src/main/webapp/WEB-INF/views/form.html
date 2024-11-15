@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Product</title>
+</head>
+<body>
+<h1 th:text="${product.id == null ? 'Add New Product' : 'Edit Product'}"></h1>
+<form th:action="@{/products/add}" method="post" th:if="${product.id == null}">
+    <input type="text" name="name" placeholder="Product Name" th:value="${product.name}" required>
+    <input type="number" name="price" placeholder="Price" th:value="${product.price}" required>
+    <textarea name="description" placeholder="Description" th:value="${product.description}"></textarea>
+    <input type="text" name="manufacturer" placeholder="Manufacturer" th:value="${product.manufacturer}" required>
+    <button type="submit">Add Product</button>
+</form>
+
+<form th:action="@{/products/edit/{id}(id=${product.id})}" method="post" th:if="${product.id != null}">
+    <input type="text" name="name" placeholder="Product Name" th:value="${product.name}" required>
+    <input type="number" name="price" placeholder="Price" th:value="${product.price}" required>
+    <textarea name="description" placeholder="Description" th:value="${product.description}"></textarea>
+    <input type="text" name="manufacturer" placeholder="Manufacturer" th:value="${product.manufacturer}" required>
+    <button type="submit">Update Product</button>
+</form>
+
+<a href="/products">Back to List</a>
+</body>
+</html>
