@@ -5,25 +5,76 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <h1>Danh Sách Bài Viết</h1>
-    <form action="/blogs/search" method="get">
-        <div class="form-group">
-            <label for="title">Tìm kiếm theo tiêu đề:</label>
-            <input type="text" id="title" name="title" class="form-control" value="">
-        </div>
-        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-        <a href="/blogs/create" class="btn btn-success">Tạo Bài Viết Mới</a>
 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Trang Quản Lý Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/blogs}">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/blogs/create}">Thêm Mới Bài Viết</a>
+                </li>
+                <!-- Form tìm kiếm theo danh mục -->
+                <li class="nav-item">
+                    <form action="/blogs" method="get" class="form-inline">
+                        <div class="form-group">
+                            <label for="categoryId" class="mr-2 text-white">Tìm kiếm theo danh mục:</label>
+                            <select name="categoryId" id="categoryId" class="form-control mr-2">
+                                <option value="" th:selected="${categoryId == null}">Tất cả danh mục</option>
+                                <option th:each="category : ${categories}"
+                                        th:value="${category.id}"
+                                        th:text="${category.name}"
+                                        th:selected="${categoryId != null && category.id == categoryId}"></option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1>Danh Sách Bài Viết</h1>
+    <br>
+    <form action="/blogs" method="get" class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-search"></i>
+            </span>
+            </div>
+            <input type="text" id="title" name="searchName" class="form-control" th:value="${searchName}"
+                   placeholder="Nhập tiêu đề bài viết" aria-label="Tìm kiếm tiêu đề" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" class="btn btn-primary ml-2">Tìm kiếm</button>
     </form>
 
+
     <br>
+
+    <h3>
+        <span th:text="${categoryId != null ? 'Danh mục: ' + (selectedCategory != null ? selectedCategory.name : 'Danh mục không tồn tại') : 'Tất cả bài viết'}"></span>
+    </h3>
+
+    <br>
+
     <table class="table">
         <thead>
         <tr>
             <th>Tiêu Đề</th>
             <th>Danh Mục</th>
             <th>Ngày Tạo</th>
+            <th>Cập Nhật Lần Cuối</th>
             <th>Thao Tác</th>
         </tr>
         </thead>
@@ -31,7 +82,8 @@
         <tr th:each="blog : ${blogs.content}">
             <td th:text="${blog.title}"></td>
             <td th:text="${blog.category != null ? blog.category.name : 'Chưa phân loại'}"></td>
-            <td th:text="${blog.createdAt}"></td>
+            <td th:text="${#temporals.format(blog.createdAt, 'dd/MM/yyyy HH:mm:ss')}"></td>
+            <td th:text="${#temporals.format(blog.updatedAt, 'dd/MM/yyyy HH:mm:ss')}"></td>
             <td>
                 <a th:href="@{/blogs/{id}(id=${blog.id})}" class="btn btn-info">Xem</a>
                 <a th:href="@{/blogs/edit/{id}(id=${blog.id})}" class="btn btn-warning">Chỉnh sửa</a>
@@ -41,17 +93,21 @@
         </tbody>
     </table>
 
-    <div>
-        <span th:text="'Trang ' + ${blogs.number + 1} + ' / ' + ${blogs.totalPages}"></span>
-        <div>
-            <a th:href="@{/blogs?page=0}" class="btn btn-secondary">Đầu</a>
-            <a th:href="@{/blogs?page=${blogs.number - 1}}" th:if="${blogs.number > 0}" class="btn btn-secondary">Trước</a>
-            <a th:href="@{/blogs?page=${blogs.number + 1}}" th:if="${blogs.hasNext()}" class="btn btn-secondary">Sau</a>
-            <a th:href="@{/blogs?page=${blogs.totalPages - 1}}" th:if="${!blogs.last}" class="btn btn-secondary">Cuối</a>
-        </div>
+    <div class="pagination">
+        <a th:if="${blogs.hasPrevious()}"
+           th:href="@{/blogs(categoryId=${categoryId}, searchName=${searchName}, page=${blogs.number - 1})}"
+           class="btn btn-secondary">Pre</a>
+        <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+        <a th:if="${blogs.hasNext()}"
+           th:href="@{/blogs(categoryId=${categoryId}, searchName=${searchName}, page=${blogs.number + 1})}"
+           class="btn btn-secondary">Next</a>
     </div>
 
-
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

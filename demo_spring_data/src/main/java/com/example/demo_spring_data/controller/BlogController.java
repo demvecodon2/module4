@@ -1,16 +1,21 @@
 package com.example.demo_spring_data.controller;
 
 import com.example.demo_spring_data.model.Blog;
+import com.example.demo_spring_data.model.Category;
 import com.example.demo_spring_data.service.IBlogService;
-import com.example.demo_spring_data.service.iml.BlogService;
 import com.example.demo_spring_data.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.SimpleDateFormat;
 import java.util.Optional;
+
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
@@ -22,9 +27,27 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping
-    public String getAllBlogs(Pageable pageable, Model model) {
-        Page<Blog> blogs = (Page<Blog>) blogService.getAllBlogs(pageable);
+    public String getAllBlogs(@RequestParam(required = false, defaultValue = "") String searchName,
+                              @RequestParam(required = false) Long categoryId,
+                              @PageableDefault(page = 0, size = 4, sort = "title") Pageable pageable,
+                              Model model) {
+        model.addAttribute("categories", categoryService.getAllCategories());
+
+        Page<Blog> blogs;
+        if (categoryId != null) {
+
+            blogs = blogService.getBlogsByCategory(categoryId, pageable);
+        } else {
+            blogs = blogService.searchBlogsByTitle(searchName, pageable);
+        }
+        Category selectedCategory = categoryId != null ?
+                categoryService.getCategoryById(categoryId).orElse(null) : null;
+
+        model.addAttribute("selectedCategory", selectedCategory);
         model.addAttribute("blogs", blogs);
+        model.addAttribute("searchName", searchName);
+        model.addAttribute("categoryId", categoryId);
+
         return "blog_list";
     }
 
@@ -78,25 +101,9 @@ public class BlogController {
         return "redirect:/blogs";
     }
 
-    @GetMapping("/sorted")
-    public String getAllBlogsSorted(Pageable pageable, Model model) {
-        Page<Blog> blogs = blogService.getAllBlogsSorted(pageable);
-        model.addAttribute("blogs", blogs);
-        return "blog_list";
-    }
-
-
     @GetMapping("/search")
     public String searchBlogs(@RequestParam("title") String title, Pageable pageable, Model model) {
         Page<Blog> blogs = blogService.searchBlogsByTitle(title, pageable);
-        model.addAttribute("blogs", blogs);
-        return "blog_list";
-    }
-
-
-    @GetMapping("/category/{categoryId}")
-    public String getBlogsByCategory(@PathVariable Long categoryId, Pageable pageable, Model model) {
-        Page<Blog> blogs = blogService.getBlogsByCategory(categoryId, pageable);
         model.addAttribute("blogs", blogs);
         return "blog_list";
     }

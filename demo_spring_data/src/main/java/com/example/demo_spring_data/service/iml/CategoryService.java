@@ -49,6 +49,5 @@ public class CategoryService implements ICategoryService {
         if (!categoryRepository.existsById(id)) {
             throw new IllegalArgumentException("Danh mục không tồn tại với id: " + id);
         }
-        categoryRepository.deleteById(id);
     }
 }

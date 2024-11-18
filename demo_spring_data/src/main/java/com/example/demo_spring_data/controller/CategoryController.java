@@ -16,11 +16,13 @@ public class CategoryController {
 
     @Autowired
     private ICategoryService categoryService;
+
     @GetMapping
     public String getAllCategories(Model model) {
         model.addAttribute("categories", categoryService.getAllCategories());
         return "category_list";
     }
+
     @GetMapping("/new")
     public String createCategoryForm(Model model) {
         model.addAttribute("category", new Category());
@@ -52,6 +54,7 @@ public class CategoryController {
             return "create_category";
         }
     }
+
     @GetMapping("/edit/{id}")
     public String editCategoryForm(@PathVariable Long id, Model model) {
         var category = categoryService.getCategoryById(id);
@@ -62,6 +65,7 @@ public class CategoryController {
         model.addAttribute("category", category.get());
         return "edit_category";
     }
+
     @PostMapping("/{id}")
     public String updateCategory(@PathVariable Long id, @Validated @ModelAttribute Category category, BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -78,6 +82,7 @@ public class CategoryController {
         }
         return "redirect:/categories";
     }
+
     @GetMapping("/delete/{id}")
     public String deleteCategory(@PathVariable Long id, Model model) {
         try {

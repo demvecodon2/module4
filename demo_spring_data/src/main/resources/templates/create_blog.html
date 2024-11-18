@@ -20,7 +20,8 @@
         <div class="form-group">
             <label for="category">Danh Mục</label>
             <select id="category" name="category.id" class="form-control">
-                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${category.name}"></option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Tạo</button>

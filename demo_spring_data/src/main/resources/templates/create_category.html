@@ -19,7 +19,7 @@
     <form action="/categories" method="post" th:object="${category}">
         <div class="form-group">
             <label for="name">Tên Danh Mục</label>
-            <input type="text" id="name" name="name" class="form-control" th:field="*{name}" required />
+            <input type="text" id="name" name="name" class="form-control" th:field="*{name}" required/>
 
             <div th:if="${#fields.hasErrors('name')}" class="text-danger">
                 <span th:errors="*{name}">Tên danh mục không hợp lệ.</span>
