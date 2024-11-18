@@ -20,4 +20,9 @@ public interface BlogRepository extends JpaRepository<Blog, Long> {
 
     @Query("select count(b) from Blog b where upper(b.title) like upper(concat('%', :title, '%'))")
     long countByTitleContainingIgnoreCase(@Param("title") String title);
+
+    @Query("select b from Blog b where b.category.id = :categoryId and upper(b.title) like upper(concat('%', :searchName, '%'))")
+    Page<Blog> findByCategoryIdAndTitleContaining(@Param("categoryId") Long categoryId,
+                                                  @Param("searchName") String searchName, Pageable pageable);
+
 }

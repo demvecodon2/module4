@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
 @Service
 public class BlogService implements IBlogService {
 
@@ -37,14 +38,12 @@ public class BlogService implements IBlogService {
             blog.setCategory(blogDetails.getCategory());
             blogRepository.save(blog);
         } else {
-            // Thêm ngoại lệ hoặc xử lý nếu không tìm thấy blog
             throw new RuntimeException("Blog with ID " + id + " not found");
         }
     }
 
     @Override
     public void deleteBlog(Long id) {
-        // Kiểm tra nếu blog tồn tại trước khi xóa
         Optional<Blog> existingBlog = blogRepository.findById(id);
         if (existingBlog.isPresent()) {
             blogRepository.deleteById(id);
@@ -61,5 +60,10 @@ public class BlogService implements IBlogService {
     @Override
     public Page<Blog> searchBlogsByTitle(String title, Pageable pageable) {
         return blogRepository.findByTitleContainingIgnoreCase(title, pageable);
+    }
+
+    @Override
+    public Page<Blog> getBlogsByCategoryAndTitle(Long categoryId, String searchName, Pageable pageable) {
+        return blogRepository.findByCategoryIdAndTitleContaining(categoryId, searchName, pageable);
     }
 }

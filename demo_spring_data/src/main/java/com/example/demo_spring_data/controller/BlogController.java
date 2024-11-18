@@ -6,14 +6,11 @@ import com.example.demo_spring_data.service.IBlogService;
 import com.example.demo_spring_data.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 @Controller
@@ -29,20 +26,23 @@ public class BlogController {
     @GetMapping
     public String getAllBlogs(@RequestParam(required = false, defaultValue = "") String searchName,
                               @RequestParam(required = false) Long categoryId,
-                              @PageableDefault(page = 0, size = 4, sort = "title") Pageable pageable,
+                              @PageableDefault(page = 0, size = 5, sort = "title") Pageable pageable,
                               Model model) {
         model.addAttribute("categories", categoryService.getAllCategories());
 
         Page<Blog> blogs;
-        if (categoryId != null) {
 
-            blogs = blogService.getBlogsByCategory(categoryId, pageable);
+        if (categoryId != null) {
+            if (!searchName.isEmpty()) {
+                blogs = blogService.getBlogsByCategoryAndTitle(categoryId, searchName, pageable);
+            } else {
+                blogs = blogService.getBlogsByCategory(categoryId, pageable);
+            }
         } else {
             blogs = blogService.searchBlogsByTitle(searchName, pageable);
         }
         Category selectedCategory = categoryId != null ?
                 categoryService.getCategoryById(categoryId).orElse(null) : null;
-
         model.addAttribute("selectedCategory", selectedCategory);
         model.addAttribute("blogs", blogs);
         model.addAttribute("searchName", searchName);

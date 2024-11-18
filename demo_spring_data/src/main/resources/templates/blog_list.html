@@ -6,7 +6,6 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">Trang Quản Lý Blog</a>
@@ -22,22 +21,6 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/blogs/create}">Thêm Mới Bài Viết</a>
                 </li>
-                <!-- Form tìm kiếm theo danh mục -->
-                <li class="nav-item">
-                    <form action="/blogs" method="get" class="form-inline">
-                        <div class="form-group">
-                            <label for="categoryId" class="mr-2 text-white">Tìm kiếm theo danh mục:</label>
-                            <select name="categoryId" id="categoryId" class="form-control mr-2">
-                                <option value="" th:selected="${categoryId == null}">Tất cả danh mục</option>
-                                <option th:each="category : ${categories}"
-                                        th:value="${category.id}"
-                                        th:text="${category.name}"
-                                        th:selected="${categoryId != null && category.id == categoryId}"></option>
-                            </select>
-                            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                        </div>
-                    </form>
-                </li>
             </ul>
         </div>
     </div>
@@ -45,22 +28,25 @@
 
 <div class="container mt-5">
     <h1>Danh Sách Bài Viết</h1>
-    <br>
-    <form action="/blogs" method="get" class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-search"></i>
-            </span>
-            </div>
-            <input type="text" id="title" name="searchName" class="form-control" th:value="${searchName}"
-                   placeholder="Nhập tiêu đề bài viết" aria-label="Tìm kiếm tiêu đề" aria-describedby="basic-addon1">
+
+    <form action="/blogs" method="get" class="form-inline mb-3">
+        <div class="form-group mr-2">
+            <label for="searchName" class="sr-only">Tìm kiếm theo tiêu đề</label>
+            <input type="text" id="searchName" name="searchName" class="form-control"
+                   placeholder="Tìm kiếm theo tiêu đề" th:value="${searchName}">
         </div>
-        <button type="submit" class="btn btn-primary ml-2">Tìm kiếm</button>
+        <div class="form-group mr-2">
+            <label for="categoryId" class="sr-only">Danh mục</label>
+            <select name="categoryId" id="categoryId" class="form-control">
+                <option value="" th:selected="${categoryId == null}">Tất cả danh mục</option>
+                <option th:each="category : ${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"
+                        th:selected="${categoryId != null && category.id == categoryId}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
     </form>
-
-
-    <br>
 
     <h3>
         <span th:text="${categoryId != null ? 'Danh mục: ' + (selectedCategory != null ? selectedCategory.name : 'Danh mục không tồn tại') : 'Tất cả bài viết'}"></span>
@@ -68,7 +54,7 @@
 
     <br>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Tiêu Đề</th>
@@ -93,14 +79,14 @@
         </tbody>
     </table>
 
-    <div class="pagination">
+    <div class="pagination d-flex justify-content-center">
         <a th:if="${blogs.hasPrevious()}"
            th:href="@{/blogs(categoryId=${categoryId}, searchName=${searchName}, page=${blogs.number - 1})}"
-           class="btn btn-secondary">Pre</a>
-        <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+           class="btn btn-secondary mr-2">Prev</a>
+        <span class="mx-2" th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
         <a th:if="${blogs.hasNext()}"
            th:href="@{/blogs(categoryId=${categoryId}, searchName=${searchName}, page=${blogs.number + 1})}"
-           class="btn btn-secondary">Next</a>
+           class="btn btn-secondary ml-2">Next</a>
     </div>
 
 </div>
