@@ -1,39 +1,50 @@
 package com.example.demo_spring_data.controller;
 
-
 import com.example.demo_spring_data.model.Blog;
+import com.example.demo_spring_data.service.IBlogService;
 import com.example.demo_spring_data.service.iml.BlogService;
+import com.example.demo_spring_data.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
+import java.util.Optional;
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
 
     @Autowired
-    private BlogService blogService;
+    private IBlogService blogService;
+
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping
-    public String getAllBlogs(Model model) {
-        List<Blog> blogs = blogService.getAllBlogs();
+    public String getAllBlogs(Pageable pageable, Model model) {
+        Page<Blog> blogs = (Page<Blog>) blogService.getAllBlogs(pageable);
         model.addAttribute("blogs", blogs);
         return "blog_list";
     }
 
     @GetMapping("/{id}")
     public String getBlogById(@PathVariable Long id, Model model) {
-        Blog blog = blogService.getBlogById(id).orElseThrow(() -> new RuntimeException("Blog not found"));
+        Optional<Blog> blogOptional = blogService.getBlogById(id);
+        if (blogOptional.isEmpty()) {
+            model.addAttribute("error", "Blog not found");
+            return "error_page";
+        }
+        Blog blog = blogOptional.get();
         model.addAttribute("blog", blog);
+        model.addAttribute("categoryName", blog.getCategory() != null ? blog.getCategory().getName() : "Chưa phân loại");
         return "blog_detail";
     }
 
     @GetMapping("/create")
     public String createBlogForm(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categories", categoryService.getAllCategories());
         return "create_blog";
     }
 
@@ -45,8 +56,13 @@ public class BlogController {
 
     @GetMapping("/edit/{id}")
     public String editBlogForm(@PathVariable Long id, Model model) {
-        Blog blog = blogService.getBlogById(id).orElseThrow(() -> new RuntimeException("Blog not found"));
-        model.addAttribute("blog", blog);
+        Optional<Blog> blogOptional = blogService.getBlogById(id);
+        if (blogOptional.isEmpty()) {
+            model.addAttribute("error", "Blog not found");
+            return "error_page";
+        }
+        model.addAttribute("blog", blogOptional.get());
+        model.addAttribute("categories", categoryService.getAllCategories());
         return "edit_blog";
     }
 
@@ -60,5 +76,28 @@ public class BlogController {
     public String deleteBlog(@PathVariable Long id) {
         blogService.deleteBlog(id);
         return "redirect:/blogs";
+    }
+
+    @GetMapping("/sorted")
+    public String getAllBlogsSorted(Pageable pageable, Model model) {
+        Page<Blog> blogs = blogService.getAllBlogsSorted(pageable);
+        model.addAttribute("blogs", blogs);
+        return "blog_list";
+    }
+
+
+    @GetMapping("/search")
+    public String searchBlogs(@RequestParam("title") String title, Pageable pageable, Model model) {
+        Page<Blog> blogs = blogService.searchBlogsByTitle(title, pageable);
+        model.addAttribute("blogs", blogs);
+        return "blog_list";
+    }
+
+
+    @GetMapping("/category/{categoryId}")
+    public String getBlogsByCategory(@PathVariable Long categoryId, Pageable pageable, Model model) {
+        Page<Blog> blogs = blogService.getBlogsByCategory(categoryId, pageable);
+        model.addAttribute("blogs", blogs);
+        return "blog_list";
     }
 }

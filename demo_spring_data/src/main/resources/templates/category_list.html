@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Danh Sách Danh Mục</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Danh Sách Danh Mục</h1>
+  <a href="/categories/new" class="btn btn-primary mb-3">Tạo Danh Mục Mới</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên Danh Mục</th>
+      <th>Hành Động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${categories}">
+      <td th:text="${category.id}"></td>
+      <td th:text="${category.name}"></td>
+      <td>
+        <a th:href="@{/categories/edit/{id}(id=${category.id})}" class="btn btn-warning">Sửa</a>
+        <a th:href="@{/categories/delete/{id}(id=${category.id})}" class="btn btn-danger">Xóa</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

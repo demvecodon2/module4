@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chỉnh Sửa Danh Mục</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Chỉnh Sửa Danh Mục</h1>
+    <form action="/categories/{id}" method="post" th:action="@{/categories/{id}(id=${category.id})}">
+        <div class="form-group">
+            <label for="name">Tên Danh Mục</label>
+            <input type="text" id="name" name="name" class="form-control" th:value="${category.name}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cập Nhật</button>
+        <a href="/categories" class="btn btn-secondary">Hủy</a>
+    </form>
+
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+</div>
+</body>
+</html>
