@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+<h1>Register</h1>
+<form action="/submit" method="post">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="${users.username}">
+    </div>
+    <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" value="${users.phoneNumber}">
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="${users.age}">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="${users.email}">
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<div th:if="${#fields.hasErrors('username')}" style="color: red;">
+    <span th:errors="*{user}">Username error</span>
+</div>
+</body>
+</html>

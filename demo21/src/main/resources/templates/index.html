@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+</head>
+<body>
+
+<h1>User Registration</h1>
+
+<form action="/submit" method="post" th:object="${user}">
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" th:field="*{firstName}" /><br/>
+  <div th:if="${#fields.hasErrors('firstName')}" style="color:red;">
+    <ul>
+      <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"></li>
+    </ul>
+  </div>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" th:field="*{lastName}" /><br/>
+  <div th:if="${#fields.hasErrors('lastName')}" style="color:red;">
+    <ul>
+      <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}"></li>
+    </ul>
+  </div>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" th:field="*{age}" /><br/>
+  <div th:if="${#fields.hasErrors('age')}" style="color:red;">
+    <ul>
+      <li th:each="err : ${#fields.errors('age')}" th:text="${err}"></li>
+    </ul>
+  </div>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" th:field="*{email}" /><br/>
+  <div th:if="${#fields.hasErrors('email')}" style="color:red;">
+    <ul>
+      <li th:each="err : ${#fields.errors('email')}" th:text="${err}"></li>
+    </ul>
+  </div>
+
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="text" id="phoneNumber" th:field="*{phoneNumber}" /><br/>
+  <div th:if="${#fields.hasErrors('phoneNumber')}" style="color:red;">
+    <ul>
+      <li th:each="err : ${#fields.errors('phoneNumber')}" th:text="${err}"></li>
+    </ul>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
