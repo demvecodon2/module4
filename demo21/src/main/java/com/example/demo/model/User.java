@@ -34,7 +34,7 @@ public class User {
 
     @Email(message = "Email must be valid")
     private String email;
-   @Size(min = 10 ,max = 12, message = "số điện thoại không phù hợp ")
+    @Size(min = 10 ,max = 12, message = "số điện thoại không phù hợp ")
     private String phoneNumber;
 
 }
