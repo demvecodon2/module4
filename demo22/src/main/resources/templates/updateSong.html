@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Update Song</h1>
-<form action="/song/update/{id}" method="post" th:object="${song}">
+<form th:action="@{/song/update/{id}(id=${song.id})}" method="post" th:object="${song}">
     <div>
         <label for="title">Song Title:</label>
         <input type="text" id="title" th:field="*{title}" placeholder="Enter song title"/>

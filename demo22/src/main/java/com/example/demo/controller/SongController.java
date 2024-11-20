@@ -8,11 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/song/list")
+@RequestMapping("/song")
 public class SongController {
 
     @Autowired
@@ -36,31 +37,6 @@ public class SongController {
     }
 
 
-    @GetMapping("/update/{id}")
-    public String showUpdateSongForm(@PathVariable("id") Long id, Model model) {
-        Song song = songService.getSongById(id);
-        if (song != null) {
-            model.addAttribute("song", song);
-            return "updateSong";
-        } else {
-            model.addAttribute("error", "Song not found");
-            return "redirect:/song/list";
-        }
-    }
-
-
-
-
-    @PostMapping("/update/{id}")
-    public String updateSong(@PathVariable("id") Long id, @Valid @ModelAttribute Song song, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "updateSong";
-        }
-        song.setId(id);
-        songService.updateSong(song);
-        model.addAttribute("message", "Song has been updated successfully.");
-        return "redirect:/song/list";
-    }
 
 
     @GetMapping("/list")
@@ -68,6 +44,45 @@ public class SongController {
         List<Song> songs = songService.getAllSongs();
         model.addAttribute("songs", songs);
         return "listSong";
+    }
+    @GetMapping("/update/{id}")
+    public String showUpdateSongForm(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
+        try {
+            Song song = songService.getSongById(id);
+            if (song != null) {
+                model.addAttribute("song", song);
+                return "updateSong";
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Song not found");
+                return "redirect:/song/list";
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error occurred: " + e.getMessage());
+            return "redirect:/song/list";
+        }
+    }
+
+
+    @PostMapping("/update/{id}")
+    public String updateSong(@PathVariable("id") Long id, @Valid @ModelAttribute Song song, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "updateSong";  // Trả lại form nếu có lỗi
+        }
+
+        if (song == null || song.getId() == null) {
+            redirectAttributes.addFlashAttribute("error", "Invalid song data.");
+            return "redirect:/song/list";
+        }
+
+        try {
+            song.setId(id);  // Cập nhật ID cho song
+            songService.updateSong(song);  // Cập nhật bài hát
+            redirectAttributes.addFlashAttribute("message", "Song has been updated successfully.");
+            return "redirect:/song/list";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error updating song: " + e.getMessage());
+            return "redirect:/song/list";
+        }
     }
 
 
