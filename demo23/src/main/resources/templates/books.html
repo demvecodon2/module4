@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+</head>
+<body>
+<h1>Book List</h1>
+<div th:if="${error != null}">
+    <p th:text="${error}" style="color: red;"></p>
+</div>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.quantity}"></td>
+        <td>
+            <!-- View Details Link -->
+            <a th:href="@{/book(title=${book.title})}">View Details</a>
+
+            <!-- Borrow Book Form -->
+            <form th:action="@{/borrow}" method="post">
+                <input type="hidden" name="title" th:value="${book.title}"/>
+                <button type="submit" th:disabled="${book.quantity == 0}">Borrow</button>
+            </form>
+
+            <form th:action="@{/return}" method="post">
+                <input type="text" name="borrowCode" placeholder="Enter Borrow Code" />
+                <button type="submit">Return</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a href="/addBook">Add New Book</a>
+</body>
+</html>
