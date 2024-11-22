@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ Hàng Của Bạn</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1>Giỏ Hàng Của Bạn</h1>
+
+<!-- Kiểm tra xem có thông báo lỗi không -->
+<div th:if="${param.error}">
+  <div class="alert alert-danger" role="alert">
+    <span th:text="${param.error}">Error message</span>
+  </div>
+</div>
+
+<!-- Hiển thị giỏ hàng -->
+<div th:if="${cart.products}">
+  <form th:action="@{/update-quantity}" method="post">
+    <div th:each="entry : ${cart.products}">
+      <div>
+        <img th:src="@{${entry.key.imageUrl}}" alt="Hình Ảnh Sản Phẩm" width="100" height="100"/>
+        <h2 th:text="${entry.key.name}">Tên Sản Phẩm</h2>
+        <p th:text="${entry.key.description}">Mô Tả Sản Phẩm</p>
+        <p><span th:text="${entry.key.price}">Giá</span> VND</p>
+        <p>Số Lượng:
+          <input type="number" name="quantity" th:value="${entry.value}" min="1" class="form-control" />
+        </p>
+        <input type="hidden" name="productId" th:value="${entry.key.id}" />
+        <button type="submit" class="btn btn-primary">Cập Nhật Số Lượng</button>
+        <a th:href="@{/remove/{id}(id=${entry.key.id})}" class="btn btn-danger">Xóa Sản Phẩm</a>
+      </div>
+    </div>
+  </form>
+
+  <p>Tổng: <span th:text="${cart.countTotalPayment()}">Tổng Tiền</span> VND</p>
+
+  <form action="/checkout" method="post">
+    <button type="submit" class="btn btn-success">Tiến Hành Thanh Toán</button>
+  </form>
+</div>
+
+<div th:if="${#lists.isEmpty(cart.products)}">
+  <p>Giỏ hàng của bạn đang trống.</p>
+</div>
+
+<a href="/shop" class="btn btn-info">Quay Lại Cửa Hàng</a>
+
+</body>
+</html>

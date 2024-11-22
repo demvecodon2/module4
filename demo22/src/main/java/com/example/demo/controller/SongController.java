@@ -25,7 +25,6 @@ public class SongController {
         return "addSong";
     }
 
-
     @PostMapping("/add")
     public String addSong(@Valid @ModelAttribute Song song, BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -36,15 +35,13 @@ public class SongController {
         return "redirect:/song/list";
     }
 
-
-
-
     @GetMapping("/list")
     public String listSongs(Model model) {
         List<Song> songs = songService.getAllSongs();
         model.addAttribute("songs", songs);
         return "listSong";
     }
+
     @GetMapping("/update/{id}")
     public String showUpdateSongForm(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
         try {
@@ -62,21 +59,18 @@ public class SongController {
         }
     }
 
-
     @PostMapping("/update/{id}")
     public String updateSong(@PathVariable("id") Long id, @Valid @ModelAttribute Song song, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            return "updateSong";  // Trả lại form nếu có lỗi
+            return "updateSong";
         }
-
         if (song == null || song.getId() == null) {
             redirectAttributes.addFlashAttribute("error", "Invalid song data.");
             return "redirect:/song/list";
         }
-
         try {
-            song.setId(id);  // Cập nhật ID cho song
-            songService.updateSong(song);  // Cập nhật bài hát
+            song.setId(id);
+            songService.updateSong(song);
             redirectAttributes.addFlashAttribute("message", "Song has been updated successfully.");
             return "redirect:/song/list";
         } catch (Exception e) {
@@ -85,14 +79,12 @@ public class SongController {
         }
     }
 
-
     @GetMapping("/delete/{id}")
     public String deleteSong(@PathVariable("id") Long id, Model model) {
         songService.deleteSong(id);
         model.addAttribute("message", "Song has been deleted successfully.");
         return "redirect:/song/list";
     }
-
 
     @GetMapping("/search")
     public String searchSongs(@RequestParam("title") String title, Model model) {

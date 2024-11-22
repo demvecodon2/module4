@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop</title>
+  <!-- Thêm link tới Bootstrap CSS từ CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h1 class="text-center">Shop</h1>
+
+  <!-- Kiểm tra nếu có sản phẩm -->
+  <div th:if="${products}">
+    <div class="row">
+      <!-- Lặp qua danh sách sản phẩm -->
+      <div th:each="product : ${products}" class="col-md-4 mb-4">
+        <div class="card">
+          <!-- Đảm bảo ảnh không bị vỡ, sử dụng lớp 'card-img-top' và 'img-fluid' -->
+          <img th:src="@{${product.imageUrl}}" alt="Product Image" class="card-img-top img-fluid" />
+          <div class="card-body">
+            <h5 class="card-title" th:text="${product.name}">Product Name</h5>
+            <p class="card-text" th:text="${product.description}">Product Description</p>
+            <p class="card-text"><strong>Price:</strong> <span th:text="${product.price}">Price</span> USD</p>
+            <a th:href="@{/add/{id}(id=${product.id}, action='show')}" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nếu không có sản phẩm -->
+  <div th:if="${#lists.isEmpty(products)}">
+    <p class="alert alert-warning">No products available.</p>
+  </div>
+
+  <!-- Link đi đến giỏ hàng -->
+  <div class="text-center mt-4">
+    <a href="/cart" class="btn btn-success">Go to Cart</a>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

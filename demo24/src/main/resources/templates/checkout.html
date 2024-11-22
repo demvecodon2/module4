@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Checkout</h1>
+
+<div>
+    <p>Total Payment: <span th:text="${cart.countTotalPayment()}">Total Price</span> USD</p>
+    <form action="/payment" method="post">
+        <button type="submit">Proceed to Payment</button>
+    </form>
+</div>
+
+<a href="/cart">Back to Cart</a>
+</body>
+</html>

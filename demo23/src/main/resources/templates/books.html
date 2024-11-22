@@ -31,13 +31,13 @@
                 <input type="hidden" name="title" th:value="${book.title}"/>
                 <button type="submit" th:disabled="${book.quantity == 0}">Borrow</button>
             </form>
-
-            <form th:action="@{/return}" method="post">
-                <input type="text" name="borrowCode" placeholder="Enter Borrow Code" />
-                <button type="submit">Return</button>
-            </form>
+            S
         </td>
     </tr>
+    <form th:action="@{/return}" method="post">
+        <input type="text" name="borrowCode" placeholder="Enter Borrow Code" />
+        <button type="submit">Return</button>
+    </form>
     </tbody>
 </table>
 <br/>
