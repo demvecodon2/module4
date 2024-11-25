@@ -9,9 +9,5 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    List<Book> findByTitle(String title);
-
-    Book getBookByTitle(String title);
-
-    List<Book> findByTitleIgnoreCase(String title); // Tìm kiếm sách theo tên không phân biệt chữ hoa chữ thường
+    List<Book> findByTitleIgnoreCase(String title);
 }

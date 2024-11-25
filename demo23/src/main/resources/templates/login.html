@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center">Login</h2>
+
+    <div th:if="${message != null}" class="alert alert-warning" role="alert">
+        <span th:text="${message}"></span>
+    </div>
+
+    <form th:action="@{/doLogin}" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-control" th:value="${user.username}" placeholder="Enter username" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Remember Me</label>
+            <input type="checkbox" name="rememberMe" th:checked="${cookieValue != null}" />
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </div>
+
+        <div class="mb-3">
+            <a href="/register" class="btn btn-link w-100">Don't have an account? Register</a>
+        </div>
+    </form>
+
+    <div th:if="${cookieValue != null}">
+        <p>Cookie Value: <span th:text="${cookieValue}"></span></p>
+    </div>
+</div>
+<p>Bạn chưa có tài khoản? <a href="/register">Đăng ký tại đây</a></p>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

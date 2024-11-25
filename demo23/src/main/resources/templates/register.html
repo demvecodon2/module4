@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+</head>
+<body>
+<h1>Đăng ký</h1>
+<form action="/register" method="post">
+    <div>
+        <label for="username">Tên người dùng:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Đăng ký</button>
+</form>
+<p th:if="${error}" th:text="${error}"></p>
+<p th:if="${message}" th:text="${message}"></p>
+</body>
+</html>

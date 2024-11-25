@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService implements IBookService {
@@ -26,5 +27,32 @@ public class BookService implements IBookService {
     @Override
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public void deleteBook(String title) {
+        List<Book> books = bookRepository.findByTitleIgnoreCase(title);
+
+        if (!books.isEmpty()) {
+            bookRepository.deleteAll(books);
+        } else {
+            throw new RuntimeException("No books found with title: " + title);
+        }
+    }
+
+    @Override
+    public Book updateBook(String title, Book book) {
+
+        List<Book> books = bookRepository.findByTitleIgnoreCase(title);
+        if (!books.isEmpty()) {
+            Book existingBook = books.get(0);
+            existingBook.setTitle(book.getTitle());
+            existingBook.setAuthor(book.getAuthor());
+
+
+            return bookRepository.save(existingBook);
+        } else {
+            throw new RuntimeException("No books found with title: " + title);
+        }
     }
 }

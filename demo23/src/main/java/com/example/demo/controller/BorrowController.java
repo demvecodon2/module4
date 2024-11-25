@@ -38,7 +38,7 @@ public class BorrowController {
 
 
         if (book == null) {
-            model.addAttribute("error", "Sách không tồn tại!");  // Nếu không tìm thấy sách
+            model.addAttribute("error", "Sách không tồn tại!");
             return "borrowResult";
         }
 

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Book {
     private String author;
     private int quantity;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "book")
     private List<BorrowCode> borrowCodes;
 
