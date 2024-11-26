@@ -3,84 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJXQ2Wz4b8n32grtSrfzF5Z5cT1nIc5Uruuy3fbDkkBxZc5QJz6okvwug84n" crossorigin="anonymous">
+    <title>Danh sách Sách</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
+    <h1>Danh sách Sách</h1>
 
-    <!-- Title -->
-    <div class="text-center mb-4">
-        <h1 class="display-4">Book List</h1>
+    <div class="input-group mb-4">
+        <input type="text" class="form-control" id="searchTitle" placeholder="Tìm kiếm sách theo tên">
+        <button class="btn btn-primary" id="searchButton">Tìm kiếm</button>
     </div>
 
-    <!-- Error Message -->
-    <div th:if="${error != null}" class="alert alert-danger">
-        <p th:text="${error}"></p>
+    <div class="alert alert-danger" id="error" style="display: none;"></div>
+
+    <div id="bookList">
+        <!-- Danh sách sách sẽ được hiển thị tại đây -->
     </div>
 
-    <!-- Return Book Form -->
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header text-center">
-            <h3>Return Book</h3>
-        </div>
-        <div class="card-body">
-            <form th:action="@{/return}" method="post" class="d-flex justify-content-center">
-                <div class="input-group w-75">
-                    <input type="text" name="borrowCode" class="form-control" placeholder="Enter Borrow Code" required />
-                    <button type="submit" class="btn btn-danger ms-2">Return</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <button class="btn btn-secondary" id="loadMoreBtn" style="display: none;">Tải thêm</button>
+</div>
 
-    <!-- Books Available Table -->
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header text-center">
-            <h3>Books Available</h3>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="book : ${books}">
-                        <td th:text="${book.title}"></td>
-                        <td th:text="${book.author}"></td>
-                        <td th:text="${book.quantity}"></td>
-                        <td>
-                            <a th:href="@{/book(title=${book.title})}" class="btn btn-info btn-sm">View</a>
-                            <form th:action="@{/borrow}" method="post" class="d-inline">
-                                <input type="hidden" name="title" th:value="${book.title}"/>
-                                <button type="submit" th:disabled="${book.quantity == 0}" class="btn btn-primary btn-sm"
-                                        th:text="${book.quantity == 0 ? 'Out of Stock' : 'Borrow'}"></button>
-                            </form>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+<!-- Modal xem chi tiết sách -->
+<div class="modal" id="bookDetailModal" tabindex="-1" aria-labelledby="bookDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookDetailModalLabel">Chi tiết Sách</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 id="bookDetailTitle"></h5>
+                <p id="bookDetailAuthor"></p>
+                <p id="bookDetailDescription"></p>
+                <button class="btn btn-primary" id="borrowBookBtn">Mượn Sách</button>
             </div>
         </div>
     </div>
-
-    <!-- Add New Book Button -->
-    <div class="card mb-4 shadow-sm">
-        <div class="card-body text-center">
-            <a href="/addBook" class="btn btn-success btn-lg">Add New Book</a>
-        </div>
-    </div>
-
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb9lWjXlbxqld/WfC3fXa88XyPfnFFz/xFJxydA9FjDFL9lgC" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0U7X1+z0X+Vmbc8Y4p3QFv4x8kIhwpAi1LYhQxZwrnRLPPS0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    let currentPage = 0;
+    const pageSize = 5;
+
+    // Hàm tìm kiếm sách qua AJAX
+    function searchBooks(title = '') {
+        $.ajax({
+            url: '/search/ajax',
+            method: 'GET',
+            data: {
+                title: title,
+                page: currentPage,
+                size: pageSize
+            },
+            success: function(response) {
+                if (response.books && response.books.length > 0) {
+                    displayBooks(response.books);
+                    if (response.totalPages > currentPage + 1) {
+                        $('#loadMoreBtn').show();
+                    } else {
+                        $('#loadMoreBtn').hide();
+                    }
+                } else {
+                    $('#error').text(response.error || 'Không có sách nào được tìm thấy.').show();
+                    $('#bookList').html('');
+                    $('#loadMoreBtn').hide();
+                }
+            },
+            error: function() {
+                $('#error').text('Có lỗi xảy ra khi tìm kiếm.').show();
+            }
+        });
+    }
+
+    // Hiển thị danh sách sách
+    function displayBooks(books) {
+        const bookList = $('#bookList');
+        books.forEach(function(book) {
+            const bookItem = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${book.title}</h5>
+                        <p class="card-text">${book.author}</p>
+                        <button class="btn btn-info" onclick="viewBookDetail(${book.id})">Xem chi tiết</button>
+                    </div>
+                </div>`;
+            bookList.append(bookItem);
+        });
+    }
+
+    // Hiển thị chi tiết sách trong modal
+    function viewBookDetail(bookId) {
+        $.ajax({
+            url: '/books/' + bookId,  // Phương thức lấy chi tiết sách
+            method: 'GET',
+            success: function(response) {
+                $('#bookDetailTitle').text(response.title);
+                $('#bookDetailAuthor').text(response.author);
+                $('#bookDetailDescription').text(response.description);  // Giả sử bạn có trường description
+                $('#borrowBookBtn').attr('onclick', 'borrowBook(' + bookId + ')');
+                $('#bookDetailModal').modal('show');
+            },
+            error: function() {
+                alert('Không thể lấy chi tiết sách.');
+            }
+        });
+    }
+
+    // Mượn sách
+    function borrowBook(bookId) {
+        $.ajax({
+            url: '/borrow',  // Phương thức mượn sách
+            method: 'POST',
+            data: { bookId: bookId },
+            success: function(response) {
+                alert('Mượn sách thành công!');
+                $('#bookDetailModal').modal('hide');
+            },
+            error: function() {
+                alert('Có lỗi xảy ra khi mượn sách.');
+            }
+        });
+    }
+
+    $('#searchButton').click(function() {
+        currentPage = 0;
+        $('#bookList').html('');
+        searchBooks($('#searchTitle').val());
+    });
+
+    $('#loadMoreBtn').click(function() {
+        currentPage++;
+        searchBooks($('#searchTitle').val());
+    });
+
+    $(document).ready(function() {
+        searchBooks();
+    });
+</script>
 
 </body>
 </html>

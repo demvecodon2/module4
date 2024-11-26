@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Tìm Kiếm</title>
+</head>
+<body>
+<h1>Kết Quả Tìm Kiếm</h1>
+
+<div th:if="${error != null}">
+    <p th:text="${error}" style="color:red;"></p>
+</div>
+
+<div>
+    <ul>
+        <th:block th:each="book : ${books}">
+            <li>
+                <p><strong>Tiêu đề:</strong> <span th:text="${book.title}"></span></p>
+                <p><strong>Tác giả:</strong> <span th:text="${book.author}"></span></p>
+                <p><strong>Số lượng:</strong> <span th:text="${book.quantity}"></span></p>
+                <a th:href="@{/book?title=${book.title}}">Xem chi tiết</a>
+            </li>
+        </th:block>
+    </ul>
+</div>
+
+<div>
+    <a href="/books">Quay lại danh sách sách</a>
+</div>
+</body>
+</html>

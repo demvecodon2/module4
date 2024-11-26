@@ -21,6 +21,7 @@ public class Book {
     private String title;
     private String author;
     private int quantity;
+    private String image;
 
     @JsonIgnore
     @OneToMany(mappedBy = "book")

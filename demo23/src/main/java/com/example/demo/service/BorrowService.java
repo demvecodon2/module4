@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.Book;
 import com.example.demo.model.BorrowCode;
-import com.example.demo.reporitory.BookRepository;
+
 import com.example.demo.reporitory.BorrowCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class BorrowService implements IBorrowService {
     @Autowired
     private BorrowCodeRepository borrowCodeRepository;
     @Autowired
-    private BookRepository bookRepository;
+    private com.example.demo.repository.BookRepository bookRepository;
     @Override
     public BorrowCode borrowBook(Book book) {
         if (book.getQuantity() > 0) {

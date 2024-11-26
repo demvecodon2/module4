@@ -1,10 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Book;
-import org.springframework.ui.Model;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IBookService {
 
@@ -18,6 +18,13 @@ public interface IBookService {
 
     Book updateBook(String title, Book book);
 
+    Page<Book> getBooksByPage(Pageable pageable);
 
+    Page<Book> searchBooksByTitle(String query, Pageable pageable);
 
+    Page<Book> getBooksByTitle(String trim, Pageable pageable);
+
+    Book getBookById(Long bookId);
+
+    Book borrowBook(Long bookId);
 }

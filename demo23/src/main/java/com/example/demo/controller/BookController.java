@@ -2,16 +2,20 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Book;
 import com.example.demo.model.BorrowCode;
-import com.example.demo.service.IBookService;
 import com.example.demo.service.BorrowService;
+import com.example.demo.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BookController {
@@ -28,27 +32,41 @@ public class BookController {
         return "books";
     }
 
-    @GetMapping("/book")
-    public String getBookByTitle(@RequestParam String title, Model model) {
+    @GetMapping("/search/ajax")
+    public ResponseEntity<Map<String, Object>> searchBooksAjax(@RequestParam(required = false) String title,
+                                                               @RequestParam int page,
+                                                               @RequestParam int size) {
+        Map<String, Object> response = new HashMap<>();
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Book> bookPage;
+
         if (title == null || title.trim().isEmpty()) {
-            model.addAttribute("error", "Please enter a book title.");
-            return "bookDetail";
-        }
-
-        List<Book> books = bookService.getBookByTitle(title.trim());
-
-        if (books != null && !books.isEmpty()) {
-            model.addAttribute("book", books.get(0));
+            bookPage = bookService.getBooksByPage(pageable);
         } else {
-            model.addAttribute("error", "No books found with the title \"" + title + "\".");
+            bookPage = bookService.getBooksByTitle(title.trim(), pageable);
         }
 
-        return "bookDetail";
+        if (bookPage.hasContent()) {
+            response.put("books", bookPage.getContent());
+            response.put("totalPages", bookPage.getTotalPages());
+            response.put("currentPage", bookPage.getNumber());
+        } else {
+            response.put("error", "Không tìm thấy sách!");
+        }
+
+        return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/addBook")
-    public String showAddBookForm() {
-        return "addBook";
+    @GetMapping("/load-more-posts")
+    public ResponseEntity<Map<String, Object>> loadMorePosts(@RequestParam int page, @RequestParam int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Book> bookPage = bookService.getBooksByPage(pageable);
+        Map<String, Object> response = new HashMap<>();
+        response.put("posts", bookPage.getContent());
+        response.put("totalPages", bookPage.getTotalPages());
+        response.put("currentPage", bookPage.getNumber());
+
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/addBook")
@@ -63,50 +81,17 @@ public class BookController {
         return "bookDetail";
     }
 
-    @GetMapping("/search")
-    public String searchBooks(@RequestParam(required = false) String title, Model model) {
-        if (title == null || title.isEmpty()) {
-            model.addAttribute("error", "Vui lòng nhập tên sách!");
-            return "books";
-        }
-
-        List<Book> books = bookService.getBookByTitle(title);
-
-        if (!books.isEmpty()) {
-            model.addAttribute("books", books);
-        } else {
-            model.addAttribute("error", "Không tìm thấy sách!");
-        }
-
-        return "books";
-    }
-
     @PostMapping("/borrow")
-    public String borrowBook(@RequestParam String title, Model model) {
-        if (title == null || title.isEmpty()) {
-            model.addAttribute("error", "Vui lòng nhập tên sách!");
-            return "bookDetail";
-        }
-
-        List<Book> books = bookService.getBookByTitle(title);
-        if (books != null && !books.isEmpty()) {
-            Book book = books.get(0);
-            if (book.getQuantity() > 0) {
-                try {
-                    BorrowCode borrowCode = borrowService.borrowBook(book);
-                    model.addAttribute("borrowCode", borrowCode.getCode());
-                    model.addAttribute("book", book);
-                    model.addAttribute("message", "Mượn sách thành công! Mã mượn: " + borrowCode.getCode());
-                } catch (RuntimeException e) {
-                    model.addAttribute("error", e.getMessage());
-                }
-            } else {
-                model.addAttribute("error", "Không còn sách để mượn.");
-            }
+    public String borrowBook(@RequestParam Long bookId, Model model) {
+        Book book = bookService.getBookById(bookId);
+        if (book != null && book.getQuantity() > 0) {
+            book.setQuantity(book.getQuantity() - 1);
+            bookService.saveBook(book);
+            model.addAttribute("borrowCode", "Mã mượn: " + bookId);  // Giả sử mã mượn là bookId
+            model.addAttribute("message", "Mượn sách thành công!");
         } else {
-            model.addAttribute("error", "Không tìm thấy sách với tên \"" + title + "\".");
+            model.addAttribute("error", "Không có sách để mượn.");
         }
-
         return "bookDetail";
     }
 
@@ -116,7 +101,6 @@ public class BookController {
             model.addAttribute("error", "Vui lòng nhập mã mượn!");
             return "redirect:/books";
         }
-
         try {
             boolean isReturned = borrowService.returnBook(borrowCode);
             if (isReturned) {
@@ -125,8 +109,16 @@ public class BookController {
         } catch (RuntimeException e) {
             model.addAttribute("error", e.getMessage());
         }
-
         return "redirect:/books";
     }
 
+    @GetMapping("/books/{id}")
+    public ResponseEntity<Book> getBookDetail(@PathVariable Long id) {
+        Book book = bookService.getBookById(id);
+        if (book != null) {
+            return ResponseEntity.ok(book);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
