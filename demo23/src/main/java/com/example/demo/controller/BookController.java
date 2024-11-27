@@ -69,16 +69,16 @@ public class BookController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/addBook")
-    public String addBook(Book book, Model model) {
-        if (book != null) {
-            Book savedBook = bookService.saveBook(book);
-            model.addAttribute("book", savedBook);
-            model.addAttribute("message", "Sách đã được thêm thành công!");
-        } else {
+    @PostMapping("/books/add")
+    public String addBook(@RequestParam String title, @RequestParam String author, @RequestParam int quantity, Model model) {
+        try {
+            // Giả sử bạn có một service để thêm sách
+            bookService.addBook(new Book(title, author, quantity, model));
+            model.addAttribute("message", "Thêm sách thành công!");
+        } catch (Exception e) {
             model.addAttribute("error", "Có lỗi xảy ra khi thêm sách.");
         }
-        return "bookDetail";
+        return "redirect:/books";
     }
 
     @PostMapping("/borrow")
@@ -112,13 +112,16 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @GetMapping("/books/{id}")
-    public ResponseEntity<Book> getBookDetail(@PathVariable Long id) {
-        Book book = bookService.getBookById(id);
+    @GetMapping("/books/{title}")
+    public String getBookDetail(@PathVariable Long title, Model model) {
+        Book book = bookService.getBookById(title); // Lấy thông tin sách từ database
+
         if (book != null) {
-            return ResponseEntity.ok(book);
+            model.addAttribute("book", book);  // Truyền book vào model nếu sách tồn tại
         } else {
-            return ResponseEntity.notFound().build();
+            model.addAttribute("error", "Sách không tồn tại.");  // Truyền lỗi nếu không tìm thấy sách
         }
+
+        return "bookDetail";
     }
 }

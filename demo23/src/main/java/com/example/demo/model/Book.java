@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class Book {
     @JsonIgnore
     @OneToMany(mappedBy = "book")
     private List<BorrowCode> borrowCodes;
+
+    public Book(String title, String author, int quantity, Model model) {
+    }
 
     public void decrementQuantity() {
         if (this.quantity > 0) {

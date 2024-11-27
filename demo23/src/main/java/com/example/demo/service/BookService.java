@@ -61,33 +61,34 @@ public class BookService implements IBookService {
         return bookRepository.findAll(pageable);
     }
 
-    // Tìm kiếm sách theo tiêu đề với phân trang
     @Override
     public Page<Book> searchBooksByTitle(String query, Pageable pageable) {
         return bookRepository.findByTitleContaining(query, pageable);
     }
 
-    // Tìm kiếm sách theo tiêu đề
     @Override
     public Page<Book> getBooksByTitle(String trim, Pageable pageable) {
         return bookRepository.findByTitleContaining(trim, pageable);
     }
 
-    // Lấy sách theo ID
     @Override
     public Book getBookById(Long bookId) {
         return bookRepository.findById(bookId).orElse(null);
     }
 
-    // Mượn sách (giảm số lượng sách)
     @Override
     public Book borrowBook(Long bookId) {
         Book book = bookRepository.findById(bookId).orElse(null);
         if (book != null && book.getQuantity() > 0) {
-            // Giảm số lượng sách khi mượn
             book.setQuantity(book.getQuantity() - 1);
             return bookRepository.save(book);
         }
         return null;
+    }
+
+    @Override
+    public void addBook(Book book) {
+        bookRepository.save(book);
+
     }
 }

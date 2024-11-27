@@ -27,4 +27,6 @@ public interface IBookService {
     Book getBookById(Long bookId);
 
     Book borrowBook(Long bookId);
+
+    void addBook(Book book);
 }
