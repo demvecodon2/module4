@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Danh sách Blog</title>
+  <style>
+    /* Cơ bản: Thiết lập phông chữ và lề */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Tạo khung cho trang */
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    /* Tiêu đề */
+    h1 {
+      color: #333;
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    /* Form tìm kiếm */
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"], select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Danh sách blog */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    li a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Phân trang */
+    .pagination {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .pagination a {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 0 5px;
+    }
+
+    .pagination a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Liên kết tạo blog mới */
+    .create-blog {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    .create-blog:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Danh sách Blog</h1>
+
+  <!-- Form tìm kiếm -->
+  <form th:action="@{/blogs}" method="get">
+    <input type="text" name="searchName" th:value="${searchName}" placeholder="Tìm kiếm blog theo tiêu đề">
+    <select name="categoryId">
+      <option th:value="${null}" th:text="'Tất cả danh mục'">Tất cả danh mục</option>
+      <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"
+              th:selected="${category.id == selectedCategory?.id}"></option>
+    </select>
+    <button type="submit">Tìm kiếm</button>
+  </form>
+
+  <!-- Hiển thị danh sách blog -->
+  <div th:if="${blogs != null}">
+    <ul>
+      <li th:each="blog : ${blogs}">
+        <a th:href="@{/blogs/{id}(id=${blog.id})}" th:text="${blog.title}"></a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <span th:text="'Trang ' + ${blogs.number + 1} + ' trên ' + ${blogs.totalPages}"></span>
+    <div>
+      <a th:href="@{/blogs(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Trước</a>
+      <a th:href="@{/blogs(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Sau</a>
+    </div>
+  </div>
+
+  <!-- Liên kết tạo blog mới -->
+  <a href="/blogs/create" class="create-blog">Tạo blog mới</a>
+</div>
+
+</body>
+</html>

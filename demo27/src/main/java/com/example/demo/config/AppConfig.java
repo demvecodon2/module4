@@ -1,4 +1,4 @@
-package com.example.demo_spring_data.config;
+package com.example.demo.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

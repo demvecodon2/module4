@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Chi Tiết Blog</title>
+  <style>
+    /* Cơ bản: Thiết lập phông chữ và lề */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* Tạo khung cho trang */
+    .container {
+      width: 80%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    /* Tiêu đề Blog */
+    h1 {
+      color: #333;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Phần thông tin danh mục */
+    .category {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .category span {
+      color: #007bff;
+    }
+
+    /* Nội dung blog */
+    .blog-content {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Các liên kết */
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 th:text="${blog.title}">Tiêu đề Blog</h1>
+
+  <!-- Thông tin danh mục -->
+  <p class="category">
+    <strong>Danh mục: </strong><span th:text="${categoryName}">Danh mục</span>
+  </p>
+
+  <!-- Nội dung blog -->
+  <div class="blog-content" th:text="${blog.content}">Nội dung blog</div>
+
+  <!-- Các liên kết hành động -->
+  <div class="actions">
+    <a href="/blogs">Trở lại danh sách blog</a>
+
+    <!-- Liên kết chỉnh sửa blog -->
+    <a th:href="@{/blogs/edit/{id}(id=${blog.id})}">Sửa Blog</a>
+
+    <!-- Liên kết xóa blog -->
+    <a th:href="@{/blogs/delete/{id}(id=${blog.id})}" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa Blog</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Menu</title>
+  <style>
+    /* Main menu container */
+    .main-menu {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Left side menu with links */
+    .menu-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* Right side menu with authentication-related links */
+    .menu-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    /* Styling for menu items */
+    .menu-item {
+      font-family: 'Dancing Script', sans-serif;
+      color: deeppink;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .menu-item:hover {
+      color: #ff1493;
+    }
+
+    .user-name {
+      color: red;
+      margin-left: 10px;
+    }
+
+    .menu-left .menu-item, .menu-right .menu-item {
+      padding-right: 10px;
+    }
+
+    .menu-right span {
+      margin-left: 20px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .main-menu {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-left, .menu-right {
+        width: 100%;
+        display: block;
+        text-align: left;
+      }
+
+      .menu-item {
+        font-size: 1rem;
+        margin-right: 0;
+        padding: 5px 0;
+      }
+
+      .menu-right {
+        margin-top: 10px;
+      }
+
+      .menu-right .user-name {
+        display: block;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div th:fragment="mainMenu" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" class="main-menu">
+  <!-- Left side menu with links -->
+  <div class="menu-left">
+    <a th:href="@{/blogs}" class="menu-item">Blogs</a>
+    | &nbsp;
+    <a th:href="@{/}" class="menu-item">Home</a>
+    | &nbsp;
+    <a th:href="@{/userInfo}" class="menu-item">User Info</a>
+    | &nbsp;
+    <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}" class="menu-item">Admin</a>
+    | &nbsp;
+    <a sec:authorize="isAuthenticated()" th:href="@{/blog/create}" class="menu-item">Post Blog</a>
+  </div>
+
+  <div class="menu-right">
+    <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="menu-item">Logout</a>
+    <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="menu-item">Login</a>
+    <span sec:authorize="isAuthenticated()" class="user-name">
+        <span sec:authentication="name"></span>
+      </span>
+  </div>
+</div>
+</body>
+</html>
